@@ -1,0 +1,45 @@
+AWS S3 Image Backup List
+
+Este é um script Python que realiza o processamento de imagens e gerencia listas de imagens em um bucket do Amazon S3. Ele faz o download de uma lista de imagens, verifica se as imagens já existem no S3 e, caso contrário, as faz o upload para o bucket. Além disso, mantém registros de imagens processadas, imagens não processadas com erros e imagens que já existiam no bucket.
+
+Pré-requisitos
+Python 3.x
+Pacotes Python: boto3, requests
+Configuração
+Antes de executar o script, é necessário configurar algumas variáveis de ambiente. Abaixo estão as variáveis que devem ser configuradas:
+
+BUCKET_NAME: O nome do bucket do Amazon S3 onde as imagens serão armazenadas.
+LIST_BACKUP: O nome do arquivo de lista de imagens a ser baixado do S3.
+LIST_PROCESSED: O nome do arquivo que conterá a lista de imagens processadas com sucesso.
+LIST_FAILED: O nome do arquivo que conterá a lista de imagens não processadas com erros.
+LIST_EXIST: O nome do arquivo que conterá a lista de imagens que já existiam no S3.
+URL_BASE: A URL base para as imagens.
+
+Execução
+Configure as variáveis de ambiente conforme mencionado acima.
+Certifique-se de que os pacotes Python boto3 e requests estão instalados. Você pode instalá-los usando o seguinte comando:
+pip install boto3 requests
+
+Execute o script:
+python backup-list-script.py
+
+O script executará as seguintes etapas:
+
+Conexão com o Amazon S3.
+Download da lista de imagens do S3.
+Processamento da lista de imagens: verificação de existência no S3, download, upload e registro.
+Atualização da lista de imagens processadas, falhadas e existentes no S3.
+Upload das listas atualizadas para o S3.
+O script registrará eventos, erros e sucessos em um arquivo de log.
+
+Logs
+Os logs são registrados usando a biblioteca de logging do Python. Você pode acompanhar as atividades e erros no arquivo de log gerado durante a execução do script.
+
+Notas
+Certifique-se de que as credenciais da AWS estejam configuradas corretamente no ambiente em que você está executando o script.
+Este script pode ser modificado para se adequar às suas necessidades específicas.
+
+Lembre-se de manter as informações confidenciais, como credenciais da AWS, em segurança e não compartilhá-las publicamente.
+
+Autor
+Jhonatan Fernandes de Souza
